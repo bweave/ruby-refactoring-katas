@@ -5,26 +5,26 @@ TIER_DATA = {
     badge_color: "#CD7F32",
     minimum_gift_cents: 0,
     tax_letter_template: "standard_acknowledgment",
-    perks: []
+    perks: [],
   },
   "silver" => {
     badge_color: "#C0C0C0",
     minimum_gift_cents: 50_000,
     tax_letter_template: "silver_acknowledgment",
-    perks: ["newsletter"]
+    perks: ["newsletter"],
   },
   "gold" => {
     badge_color: "#FFD700",
     minimum_gift_cents: 100_000,
     tax_letter_template: "gold_acknowledgment",
-    perks: ["newsletter", "event_invite"]
+    perks: %w[newsletter event_invite],
   },
   "platinum" => {
     badge_color: "#E5E4E2",
     minimum_gift_cents: 500_000,
     tax_letter_template: "platinum_acknowledgment",
-    perks: ["newsletter", "event_invite", "personal_call"]
-  }
+    perks: %w[newsletter event_invite personal_call],
+  },
 }.freeze
 
 class DonorReport

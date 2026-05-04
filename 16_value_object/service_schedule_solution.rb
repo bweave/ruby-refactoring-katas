@@ -8,7 +8,7 @@ class ServiceTime
     "America/Chicago" => "CT",
     "America/New_York" => "ET",
     "America/Denver" => "MT",
-    "America/Los_Angeles" => "PT"
+    "America/Los_Angeles" => "PT",
   }.freeze
 
   attr_reader :day, :time, :zone

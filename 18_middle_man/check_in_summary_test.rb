@@ -3,11 +3,11 @@ require_relative "check_in_summary"
 
 class CheckInSummaryTest < Minitest::Test
   RECORDS = [
-    {location: "Main", first_time: false},
-    {location: "Main", first_time: true},
-    {location: "Kids", first_time: false},
-    {location: "Kids", first_time: false},
-    {location: "Overflow", first_time: true},
+    { location: "Main", first_time: false },
+    { location: "Main", first_time: true },
+    { location: "Kids", first_time: false },
+    { location: "Kids", first_time: false },
+    { location: "Overflow", first_time: true },
   ].freeze
 
   def test_total
@@ -15,7 +15,7 @@ class CheckInSummaryTest < Minitest::Test
   end
 
   def test_by_location
-    expected = {"Main" => 2, "Kids" => 2, "Overflow" => 1}
+    expected = { "Main" => 2, "Kids" => 2, "Overflow" => 1 }
 
     assert_equal expected, CheckInSummary.new(RECORDS).by_location
   end

@@ -47,6 +47,6 @@ class DonorReportTest < Minitest::Test
   end
 
   def test_platinum_perks
-    assert_equal ["newsletter", "event_invite", "personal_call"], @report.perks("platinum")
+    assert_equal %w[newsletter event_invite personal_call], @report.perks("platinum")
   end
 end

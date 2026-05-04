@@ -4,7 +4,7 @@ class ServiceSchedule
     "America/Chicago" => "CT",
     "America/New_York" => "ET",
     "America/Denver" => "MT",
-    "America/Los_Angeles" => "PT"
+    "America/Los_Angeles" => "PT",
   }.freeze
 
   def initialize(services)
@@ -13,9 +13,7 @@ class ServiceSchedule
   end
 
   def display
-    @services.map { |s|
-      "#{s[:name]}: #{format_time(s[:day], s[:time], s[:zone])}"
-    }
+    @services.map { |s| "#{s[:name]}: #{format_time(s[:day], s[:time], s[:zone])}" }
   end
 
   def same_slot?(a, b)
@@ -23,9 +21,7 @@ class ServiceSchedule
   end
 
   def sorted_names
-    @services
-      .sort_by { |s| [DAYS.index(s[:day]) || 7, s[:time]] }
-      .map { |s| s[:name] }
+    @services.sort_by { |s| [DAYS.index(s[:day]) || 7, s[:time]] }.map { |s| s[:name] }
   end
 
   private
