@@ -74,6 +74,11 @@ bundle exec stree write **/*.rb  # format
 | 13 | Decompose Conditional | A complex boolean condition that requires translation to understand |
 | 14 | Tell Don't Ask | Asking an object's state externally and deciding what to do yourself |
 | 15 | Encapsulate Collection | A raw collection exposed via attr_reader that callers can freely mutate |
+| 16 | Introduce Value Object | A multi-field concept (day, time, zone) treated as separate raw scalars |
+| 17 | Replace Inheritance with Delegation | Inheriting a utility class just to borrow a few methods |
+| 18 | Middle Man | A class that does nothing but proxy every call to another object |
+| 19 | Query Object | Repeated filter conditions scattered across methods instead of composed |
+| 20 | Shotgun Surgery | Adding one new tier forces small edits across four separate methods |
 
 ## Rules
 

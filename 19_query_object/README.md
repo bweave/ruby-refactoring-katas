@@ -2,7 +2,7 @@
 
 ## The Smell: Repeated Filter Logic in Every Method
 
-`VolunteerRoster` has five query methods. Each one assembles a filter from
+`VolunteerPool` has five query methods. Each one assembles a filter from
 scratch using raw `select` and `&&` conditions:
 
 ```ruby
@@ -44,7 +44,7 @@ roster methods just chain it in where needed.
 - Do not change `volunteer_roster_test.rb`
 - Tests must stay green throughout
 - No `v[:available]`, `v[:qualified]`, or `v[:first_timer]` checks should
-  remain in `VolunteerRoster` when you are done — that knowledge belongs on
+  remain in `VolunteerPool` when you are done — that knowledge belongs on
   `VolunteerQuery`
 
 ## Check Your Work

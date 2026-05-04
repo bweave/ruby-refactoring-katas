@@ -32,7 +32,7 @@ class VolunteerQuery
   end
 end
 
-class VolunteerRoster
+class VolunteerPool
   def initialize(volunteers)
     @volunteers = volunteers
   end

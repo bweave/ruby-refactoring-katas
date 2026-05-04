@@ -1,4 +1,4 @@
-class VolunteerRoster
+class VolunteerPool
   def initialize(volunteers)
     # volunteers: [{name:, team:, available:, qualified:, first_timer:}, ...]
     @volunteers = volunteers
