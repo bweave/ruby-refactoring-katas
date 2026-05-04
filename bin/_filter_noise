@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# Filters known-noise warnings emitted by Bundler in the devbox/Nix Ruby env.
+#
+# nixpkgs ruby-3.3.x ships a bundler whose rubygems_ext.rb redefines constants
+# already set in rubygems/platform.rb (Gem::Platform::JAVA, MSWIN, etc.). The
+# redefinitions happen at load time, before any user-level interception can
+# run, so the only place to suppress them is the stderr stream.
+#
+# Usage: bin/_filter_noise -- some-command [args...]
+#        any-command 2> >(bin/_filter_noise >&2)
+#
+# TODO: remove this filter once nixpkgs ships a Ruby build where bundler's
+# rubygems_ext.rb no longer redefines the Gem::Platform constants set by
+# rubygems/platform.rb. To check: in a fresh devbox shell, run
+# `bundle exec rake` directly (no filter) and confirm no "already initialized
+# constant Gem::Platform::*" warnings appear. When clean, delete this file,
+# revert bin/watch, and revert the init_hook + scripts in devbox.json.
+# Tested broken on: ruby@3.3.10 + bundler 2.5.22/2.6.8, ruby@3.4.9 + bundler 2.6.9.
+
+set -euo pipefail
+
+NOISE='warning: (already initialized constant Gem::Platform::|previous definition of (JAVA|MSWIN|MSWIN64|MINGW|X64_MINGW|UNIVERSAL_MINGW|WINDOWS|X64_LINUX|X64_LINUX_MUSL) was here)|^Source locally installed gems is ignoring #<Bundler::StubSpecification'
+
+if [ "${1:-}" = "--" ]; then
+  shift
+  exec "$@" 2> >(grep -E -v "$NOISE" >&2)
+fi
+
+grep -E -v "$NOISE"
