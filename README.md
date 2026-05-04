@@ -62,6 +62,13 @@ bundle exec stree write **/*.rb  # format
 | 01 | Extract Method | Long method, comments as section headers |
 | 02 | Split Responsibility | One class doing two unrelated jobs |
 | 03 | Replace Conditional with Polymorphism | Case/if chains that grow with every new type |
+| 04 | Replace Temp with Query | Local variables that each compute one thing once |
+| 05 | Introduce Parameter Object | Raw hash unpacked into many local variables |
+| 06 | Null Object | Nil checks for an optional collaborator scattered across methods |
+| 07 | Feature Envy | A method more interested in another object's data than its own |
+| 08 | Guard Clause | Deeply nested conditionals (the arrow anti-pattern) |
+| 09 | Primitive Obsession | Money as a raw integer with formatting logic repeated |
+| 10 | Data Clump | Fields that always travel together but live as separate attributes |
 
 ## Rules
 
