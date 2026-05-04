@@ -69,6 +69,11 @@ bundle exec stree write **/*.rb  # format
 | 08 | Guard Clause | Deeply nested conditionals (the arrow anti-pattern) |
 | 09 | Primitive Obsession | Money as a raw integer with formatting logic repeated |
 | 10 | Data Clump | Fields that always travel together but live as separate attributes |
+| 11 | Message Chain | Reaching through an object graph two or three hops deep |
+| 12 | Collection Pipeline | Imperative loops where Enumerable methods would name the intent |
+| 13 | Decompose Conditional | A complex boolean condition that requires translation to understand |
+| 14 | Tell Don't Ask | Asking an object's state externally and deciding what to do yourself |
+| 15 | Encapsulate Collection | A raw collection exposed via attr_reader that callers can freely mutate |
 
 ## Rules
 

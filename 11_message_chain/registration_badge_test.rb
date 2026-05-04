@@ -45,6 +45,6 @@ class RegistrationBadgeTest < Minitest::Test
     campus_obj = Campus.new(name: campus)
     event = Event.new(title: "Sunday Service", campus: campus_obj)
     person = Person.new(first_name: first_name, last_name: last_name)
-    Registration.new(person: person, event: event, role: role)
+    EventRegistration.new(person: person, event: event, role: role)
   end
 end

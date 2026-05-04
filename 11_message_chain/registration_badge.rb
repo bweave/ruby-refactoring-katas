@@ -6,7 +6,7 @@ Person =
       "#{first_name} #{last_name}"
     end
   end
-Registration = Struct.new(:person, :event, :role, keyword_init: true)
+EventRegistration = Struct.new(:person, :event, :role, keyword_init: true)
 
 class RegistrationBadge
   def initialize(registration)

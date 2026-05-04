@@ -16,7 +16,7 @@ Person =
     end
   end
 
-class Registration
+class EventRegistration
   attr_reader :role
 
   def initialize(person:, event:, role:)
