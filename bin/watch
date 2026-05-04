@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+filter="$(dirname "$0")/_filter_noise"
+
+if [ -n "${1:-}" ]; then
+  exec rerun -bcqx --no-notify -- "$filter" -- bundle exec ruby "$1"
+else
+  exec rerun -bcqx --no-notify -- "$filter" -- bundle exec rake
+fi

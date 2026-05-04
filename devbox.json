@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+  "packages": [
+    "ruby@3.3",
+    "libyaml"
+  ],
+  "shell": {
+    "init_hook": [
+      "./bin/_filter_noise -- bundle install --quiet"
+    ],
+    "scripts": {
+      "test": "./bin/_filter_noise -- bundle exec rake",
+      "watch": "rerun -bcx --no-notify -- ./bin/_filter_noise -- bundle exec rake"
+    }
+  }
+}
