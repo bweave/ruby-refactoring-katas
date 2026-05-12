@@ -1,19 +1,26 @@
 # Kata 05 — Introduce Parameter Object
 
-## The Smell: Raw Hash Unpacked Into Many Locals
+## The Smell: Data Clump Passed as an Anonymous Hash
 
 `BadgePrinter#print_badge` receives a hash and immediately extracts five keys
 into five separate local variables. That upfront unpacking is a sign that the
 five fields belong together — they always travel as a group, they describe the
 same thing, and they need to be unwrapped every time they're used.
 
-A raw hash is an anonymous data bag. It has no name, no behavior, and no
-obvious home for logic that works on its contents (like formatting a full name
+When a cluster of data items always appears together — always passed together,
+always unpacked together — that cluster is a **Data Clump**. Here the clump is
+hiding inside a hash: the five fields always arrive as a unit and are always
+used together. The hash is an anonymous data bag with no name, no behavior, and
+no obvious home for logic that works on its contents (like formatting a full name
 or a check-in time). A named object fixes all three.
 
 The tell: if you wrote `first_name = data[:first_name]` five times in five
 different methods, you'd see the duplication instantly. Doing it once at the
 top of one method hides the same problem.
+
+Contrast this with Kata 10, where the clump lives inside a class as separate
+fields. The fix is the same — extract the group into its own object — but the
+starting point differs.
 
 ## Your Goal
 
