@@ -54,6 +54,16 @@ through `@formatter`:
 @formatter.divider
 ```
 
+## A Note on Dependency Injection
+
+The `formatter:` keyword argument is **dependency injection** — the collaborator
+is supplied from outside rather than instantiated inside. This is the Dependency
+Inversion Principle (the D in SOLID) in action: `AttendanceExporter` depends on
+an abstraction (any object that responds to `format_count`, `format_percentage`,
+`divider`) rather than a concrete class. The default value keeps callers who don't
+care about formatting simple, while still leaving the door open for tests and
+alternate implementations to supply a different formatter.
+
 ## Constraints
 
 - Do not change `attendance_exporter_test.rb`
