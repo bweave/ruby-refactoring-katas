@@ -15,8 +15,8 @@ touches `self`. If it's all `group`, the method wants to move.
 
 ## Your Goal
 
-Move the computation to `Group`. Convert `Group` from a `Struct` to a full class
-that owns `active_count`, the percentage, and the formatted summary string.
+Move the computation to `Group`. Add methods directly to the `Struct` to own
+`active_count`, the percentage, and the formatted summary string.
 `GroupReport#membership_summary` should become a one-liner that delegates:
 
 ```ruby
@@ -24,6 +24,10 @@ def membership_summary(group)
   group.membership_summary
 end
 ```
+
+You do not need to convert `Group` from a `Struct` to a full class — a `Struct`
+can hold methods too, and the struct form is more concise when the data shape
+is stable.
 
 ## Constraints
 
