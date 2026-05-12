@@ -35,6 +35,12 @@ a roster — should go through a method the class deliberately exposes:
 attr_reader :name   # name stays public; members does not
 ```
 
+**A note on scope:** The code changes required for this kata are intentionally
+small — you're removing one accessor and confirming the existing methods already
+provide the right interface. Don't be surprised if the diff is just a few lines.
+The lesson is in understanding *why* the small change matters, not in the volume
+of code moved.
+
 ## Constraints
 
 - Do not change `service_team_test.rb`
