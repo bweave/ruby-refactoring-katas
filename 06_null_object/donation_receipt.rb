@@ -4,14 +4,12 @@ class DonationReceipt
   end
 
   def summary_line
-    amount = formatted_amount
-    fund = @donation[:fund]
-    fund ? "#{amount} donated to #{fund[:name]}" : "#{amount} donated to General Fund"
+    fund_name = @donation[:fund] ? @donation[:fund][:name] : "General Fund"
+    "#{formatted_amount} donated to #{fund_name}"
   end
 
   def tax_line
-    fund = @donation[:fund]
-    if fund && fund[:tax_deductible]
+    if @donation[:fund] && @donation[:fund][:tax_deductible]
       "This contribution is tax-deductible."
     else
       "This contribution is not tax-deductible."
@@ -19,11 +17,21 @@ class DonationReceipt
   end
 
   def acknowledgment_note
-    fund = @donation[:fund]
-    if fund
-      "Thank you for your gift to the #{fund[:name]}."
+    fund_name = @donation[:fund] ? @donation[:fund][:name] : "General Fund"
+    "Thank you for your gift to the #{fund_name}."
+  end
+
+  def giving_category
+    @donation[:fund] ? @donation[:fund][:category] : "General"
+  end
+
+  def receipt_footer
+    if @donation[:fund] && @donation[:fund][:tax_deductible]
+      "Retain this receipt for your tax records. Fund: #{@donation[:fund][:name]}"
+    elsif @donation[:fund]
+      "Fund: #{@donation[:fund][:name]}"
     else
-      "Thank you for your gift to the General Fund."
+      "Fund: General Fund"
     end
   end
 
