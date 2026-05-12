@@ -2,7 +2,7 @@
 
 ## The Smell: Reaching Through Objects
 
-`RegistrationBadge#label` builds its output by chaining through an object
+`EventRegistrationBadge#label` builds its output by chaining through an object
 graph it has no business navigating:
 
 ```ruby
@@ -21,8 +21,8 @@ builder is a message chain.
 
 ## Your Goal
 
-Add delegation methods to `Registration` so that `RegistrationBadge` only needs
-to call methods directly on `@registration`. `Registration` knows how to find
+Add delegation methods to `EventRegistration` so that `EventRegistrationBadge` only needs
+to call methods directly on `@registration`. `EventRegistration` knows how to find
 the person's name and the campus name — the badge doesn't need to know how:
 
 ```ruby
@@ -35,11 +35,11 @@ end
 
 - Do not change `registration_badge_test.rb`
 - Tests must stay green after every step
-- `RegistrationBadge#label` must not traverse more than one object deep when
+- `EventRegistrationBadge#label` must not traverse more than one object deep when
   you're done — no `@registration.something.something`
 
 ## Check Your Work
 
 Ask yourself: if `Person` is replaced by a different object with a different
-method name, which class changes? If the answer is `Registration` — and
-`RegistrationBadge` never needs to open — the chain is broken.
+method name, which class changes? If the answer is `EventRegistration` — and
+`EventRegistrationBadge` never needs to open — the chain is broken.
