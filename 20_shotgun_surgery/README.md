@@ -72,3 +72,15 @@ No `case`, no duplication. The tier's properties travel together, and adding
 Ask yourself: to add a "diamond" tier with its own color, minimum, template,
 and perks — how many lines change? If the answer is "one new hash entry" —
 the surgery is no longer shotgun.
+
+## Discussion Questions
+
+1. How is Shotgun Surgery different from the Replace Conditional smell (kata 03), which also involves repeated `case` statements?
+2. What's the risk of using `fetch` in `tier_data(tier)` vs. using `[]`? When would each be appropriate?
+3. Could `TIER_DATA` be moved to a database or configuration file? What would need to change in the code?
+
+## Going Further
+
+Add a "diamond" tier to `TIER_DATA`. Count the lines changed. Then add a new
+*attribute* — say, `invitation_only?` — to every tier at once. Compare that
+effort to what it would have taken with the original `case` approach.

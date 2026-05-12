@@ -42,3 +42,16 @@ is stable.
 Ask yourself: if the formula for active percentage changes, which class changes?
 If the answer is `Group` — and `GroupReport` never needs to open — the method
 is in the right place.
+
+## Discussion Questions
+
+1. After the refactoring, `GroupReport` has one method that's a one-liner. Does `GroupReport` still have a reason to exist?
+2. Feature Envy says the method wants to live closer to the data it uses. What other smells can you think of that have a similar "move things closer together" resolution?
+3. How does Feature Envy relate to the Single Responsibility Principle?
+
+## Going Further
+
+Look at `GroupReport#membership_summary` after the refactoring — it only calls
+`group.membership_summary`. Consider whether `GroupReport` can be eliminated,
+and what callers would have to change. Is keeping `GroupReport` as a thin
+delegator ever justified?

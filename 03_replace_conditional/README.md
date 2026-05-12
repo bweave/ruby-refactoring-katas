@@ -39,3 +39,16 @@ Ask yourself: if a new item type `"video"` is added, which files change?
 
 If the answer is only "I add a new class and register it," the refactoring is complete.
 If the answer includes "and I edit the formatter," keep going.
+
+## Discussion Questions
+
+1. When is a `case` statement the right tool, and when is it a smell? What's the difference between switching on type vs. switching on state?
+2. Adding a new item type now means adding a new class. What if you need to *remove* an item type? Which approach — `case` vs. polymorphism — handles removal more gracefully?
+3. The `ITEM_CLASSES` hash maps type strings to classes. Who decides what to do with an unknown type, and is `UnknownItem` a good name for that class?
+
+## Going Further
+
+Add a `"video"` item type that formats as `"[Video] #{item[:title]} (#{item[:duration]} min)"`.
+Notice you only add one class and one hash entry — `ServicePlanItemFormatter` is
+untouched. Then add a `"communion"` type. How does the cost of adding a type
+compare to the original `case` version?

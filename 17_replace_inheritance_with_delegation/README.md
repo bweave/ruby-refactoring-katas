@@ -76,3 +76,15 @@ Ask yourself: if you wanted to swap `ReportFormatter` for a `CsvFormatter` that
 formats counts differently, which class would you change? If the answer is
 "pass a different object to the constructor" — with no changes to
 `AttendanceExporter` — the delegation is doing its job.
+
+## Discussion Questions
+
+1. Before the refactoring, how would you have tested `AttendanceExporter` with a fake formatter that counts calls? After the refactoring, how does that test look?
+2. When IS inheritance the right choice? What is the test for "truly extending a class"?
+3. Two classes sharing utility methods via inheritance creates implicit coupling. How does delegation make that coupling explicit?
+
+## Going Further
+
+Write a `CsvFormatter` that formats counts as plain numbers (no "person/people" label).
+Pass it to `AttendanceExporter.new(records, formatter: CsvFormatter.new)`. Observe
+that `AttendanceExporter` requires zero changes to produce CSV-compatible output.

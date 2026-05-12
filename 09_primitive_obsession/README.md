@@ -44,3 +44,16 @@ status = remaining.fulfilled? ? "Fulfilled" : "In progress"
 Ask yourself: if the currency format changes from `$10.00` to `10.00 USD`, which
 class changes? If the answer is only `Money` — and `PledgeTracker` never opens —
 the value object is doing its job.
+
+## Discussion Questions
+
+1. `Money` now owns formatting and arithmetic. What other behaviors might eventually belong on `Money` — and what behaviors should *not* live there?
+2. How does wrapping cents in a `Money` object protect against bugs like accidentally mixing a cent-valued integer with a dollar-valued float?
+3. What is the minimum interface `Money` needs to make `PledgeTracker` work cleanly?
+
+## Going Further
+
+Add a `zero?` method to `Money` that returns `true` when the amount is zero. Notice
+how natural it reads — `remaining.zero?` vs. `remaining.amount_cents == 0`. Then
+consider: should `fulfilled?` delegate to `zero?`, or are "fulfilled" and "zero"
+genuinely different concepts in this domain?

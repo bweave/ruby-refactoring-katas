@@ -47,3 +47,16 @@ right one for the job:
 Ask yourself: can you read each method body out loud and have it describe what
 it does, not how? If `confirmed_names` reads like "select confirmed, then map to
 full name" — with no mention of arrays or loops — the pipeline is in place.
+
+## Discussion Questions
+
+1. When is an imperative `each` loop preferable to a pipeline? Are there cases where the loop version is clearer?
+2. `select { }.map { }` vs. `filter_map { }` — when would you choose each?
+3. A pipeline chains transformations. When does chaining too many steps in one expression hurt readability?
+
+## Going Further
+
+Add a `by_team` method that returns a hash of `{ team_name => [volunteer, ...] }`
+for confirmed volunteers, grouped by team. The `group_by` method handles this
+in one pipeline step. Then add `team_counts` that maps each team name to its
+count using `transform_values`.

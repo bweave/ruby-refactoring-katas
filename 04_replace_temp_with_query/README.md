@@ -38,3 +38,15 @@ end
 Ask yourself: if the coverage threshold for "Partially staffed" changes from 60%
 to 70%, which method changes? If the answer is `coverage_label` — and only
 `coverage_label` — the extraction is complete.
+
+## Discussion Questions
+
+1. A temp variable computed once vs. a query method called on every access — what's the tradeoff when the computation is expensive?
+2. Now that `confirmed_count` is a method, could you test it directly? Would that test add value, or is the behavior already covered through `status_summary`?
+3. `coverage_label` encodes two thresholds. How would you name the constants that represent them to make the rule self-documenting?
+
+## Going Further
+
+Add a `fully_staffed?` predicate that returns true when `confirmed_count >= needed_count`.
+Notice how it reads naturally using the query methods you've already extracted.
+Then use it inside `coverage_label` to eliminate the `100%` branch.

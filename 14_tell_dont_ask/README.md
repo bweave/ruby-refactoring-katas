@@ -49,3 +49,16 @@ end
 Ask yourself: if a new status `"cancelled"` needs to trigger a different email,
 which class changes? If the answer is `Registration` — and `RegistrationNotifier`
 never opens — the decision lives in the right place.
+
+## Discussion Questions
+
+1. After the refactoring, which class would a new developer look at first to understand what notification logic fires for a confirmed, paid registration?
+2. Could `RegistrationNotifier` be eliminated entirely? What would need to change about its callers?
+3. `Registration` now knows about mailers. What's the tradeoff? Does this violate SRP?
+
+## Going Further
+
+Add a `"cancelled"` status to `Registration#notify` that sends a cancellation
+email. Notice that only `Registration` changes. Then consider: if the project
+later added `GroupRegistration` or `GuestRegistration`, would the notification
+logic need to live in those classes too — or could it be shared?

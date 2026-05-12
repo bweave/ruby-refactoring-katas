@@ -69,3 +69,16 @@ end
 Ask yourself: if you add a sixth method that needs the fund's campaign code,
 does it need to check for nil? If the answer is no — because `NullFund` returns
 a safe default — the pattern is in place.
+
+## Discussion Questions
+
+1. What are two alternatives to Null Object for handling the missing `fund` case? What's the tradeoff of each compared to this pattern?
+2. When would you use Ruby's safe navigation operator (`&.`) instead of a Null Object? When does Null Object win?
+3. `NullFund` and `Fund` respond to the same messages. How does this relate to the Liskov Substitution Principle?
+
+## Going Further
+
+Add a `campaign_code` method to `Fund` that returns the fund's campaign identifier
+(e.g., `"2025-CAPITAL"`). Add a sensible default to `NullFund` (e.g., `nil` or
+`"undesignated"`). Notice that `DonationReceipt` requires zero changes to support
+the new attribute.

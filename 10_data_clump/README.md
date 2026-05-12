@@ -38,3 +38,16 @@ end
 Ask yourself: if the address format needs to add a country line, which class
 changes? If the answer is only `Address` — and `TeamMember` never opens — the
 extraction is complete.
+
+## Discussion Questions
+
+1. How is Data Clump different from Primitive Obsession (kata 09)? When does a primitive become a clump?
+2. After extracting `Address`, could `Address` itself show a smell? What would it be?
+3. What decides whether to make `Address` a `Struct` vs. a plain class?
+
+## Going Further
+
+Add a `country` field to `Address` with a default of `"US"`. Notice that `TeamMember`
+is completely unaffected — the change lives entirely in `Address`. Then add a
+`formatted_for_envelope` method that includes the country line when it isn't `"US"`.
+Again, `TeamMember` doesn't change.

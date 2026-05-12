@@ -55,3 +55,16 @@ own all the behavior.
 
 Ask yourself: is there any class in the file that does nothing but hand
 messages to another class? If the answer is no — the middle man is gone.
+
+## Discussion Questions
+
+1. When is a thin delegating class justified rather than a smell? What would have to be true about `CheckInSummary` for it to be worth keeping?
+2. Middle Man often appears when a past refactoring was left half-finished. What refactoring might have created `CheckInSummary` in the first place?
+3. How do you distinguish a useful facade from an unnecessary middle man?
+
+## Going Further
+
+After inlining, imagine a new requirement: check-ins from a "returning member"
+path count double for reporting purposes. Where would that weighting logic go?
+Notice how having one class makes the answer obvious, compared to figuring out
+whether it belongs in `CheckInSummary` or `CheckInStats`.

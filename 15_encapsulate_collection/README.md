@@ -53,3 +53,16 @@ of code moved.
 Ask yourself: is there any way for a caller to add a member without going through
 `add`, or remove a member without a method that enforces the class's rules? If
 the answer is no — the collection is encapsulated.
+
+## Discussion Questions
+
+1. What invariants does `ServiceTeam` now enforce that it couldn't enforce before?
+2. Why not just return a frozen copy of `@members` from a `members` reader? What problem would that solve, and what would it leave open?
+3. What if a caller needed to sort or paginate members? How would you expose that safely without leaking the raw array?
+
+## Going Further
+
+Add a `remove(member)` method that enforces a rule — for example, you can't
+remove the last leader. Notice how encapsulation makes it possible to enforce
+this invariant from a single place, whereas callers holding the raw array
+could never be constrained this way.

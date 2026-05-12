@@ -48,3 +48,16 @@ end
 Ask yourself: if you needed to add a `room_number` field to every badge, where
 does that change live? If the answer is only `CheckIn` — and not `BadgePrinter`
 — the refactoring is complete.
+
+## Discussion Questions
+
+1. After introducing `CheckIn`, what is `BadgePrinter`'s responsibility? Has it shrunk?
+2. Should `CheckIn` validate its fields — for example, require that `first_name` is not blank? Or is validation a different concern?
+3. `CheckIn` is a `Struct`. If you needed `CheckIn` to inherit from another class, what would you change, and what would stay the same?
+
+## Going Further
+
+Add a second printer — say, a `WristbandPrinter` — that uses `CheckIn` to format
+a shorter label. Notice that neither printer duplicates the field-unpacking logic;
+they both just ask `CheckIn` for what they need. This is the payoff of the
+parameter object: the clump is resolved once, and all consumers benefit.

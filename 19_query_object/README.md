@@ -52,3 +52,16 @@ roster methods just chain it in where needed.
 Ask yourself: if a new filter `:background_cleared` is added, how many places
 change? If the answer is "add one method to `VolunteerQuery`, then chain it
 where needed" — the query knowledge is centralized.
+
+## Discussion Questions
+
+1. What does `VolunteerQuery` give you that a module with static helper methods wouldn't? What's the key difference?
+2. `VolunteerQuery` chains methods and returns `self`. How does that compare to ActiveRecord's query interface?
+3. What's the difference between a Query Object and a scope method on a model? When would you use each?
+
+## Going Further
+
+Add a `background_cleared` filter method to `VolunteerQuery`. Then use it in
+`VolunteerPool#ready_for` without changing `available_for` or any other method.
+Then add a `limit(n)` method — notice how it composes cleanly with any filter
+chain.

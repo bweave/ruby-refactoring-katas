@@ -45,3 +45,16 @@ Ask yourself:
 - If the attendance rate formula changes, which class changes?
 
 If the answer to both is "the same class," keep splitting.
+
+## Discussion Questions
+
+1. After the split, could either new class be split again? How would you know when to stop?
+2. The formatter takes a `stats` object as a collaborator. How does that keep it from leaking calculation knowledge?
+3. What if you needed a second formatter (e.g., CSV output)? Which classes would change, and which wouldn't?
+
+## Going Further
+
+Add a `percentage_format` method to the formatter that controls how rates are
+displayed (e.g., `"75%"` vs. `"0.75"`). Notice that only the formatter changes —
+the stats class is completely untouched. Then consider: what if you needed the
+stats class to also support a `median_attendance` method? Where does that go?

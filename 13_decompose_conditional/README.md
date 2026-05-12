@@ -53,3 +53,15 @@ The same predicates eliminate the duplication in `ineligible_reason`.
 Ask yourself: can you read `eligible?` out loud and have it be a description of
 what makes someone eligible — with no numbers, no string comparisons, no `!`?
 If yes, the decomposition is complete.
+
+## Discussion Questions
+
+1. How does this differ from Replace Conditional with Polymorphism (kata 03)? Both extract logic out of conditionals — what's the key difference?
+2. The predicates are private. Should any of them be public? What would change about the design if they were?
+3. What if eligibility rules varied by team or role? How would you extend this design without modifying `TeamLeaderEligibility`?
+
+## Going Further
+
+Extract the predicates into a standalone `EligibilityRules` module or value object
+that can be reused by other checkers (e.g., `StageLeaderEligibility`). Notice how
+the composition still reads naturally and the predicates don't duplicate.

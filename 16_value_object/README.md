@@ -74,3 +74,17 @@ No formatting math, no `DAYS.index`, no zone lookup should remain in
 Ask yourself: if the display format changes from `"Sunday 8:00 AM CT"` to
 `"Sun 8:00am (CT)"`, which class changes? If the answer is only `ServiceTime` —
 and `ServiceSchedule` never opens — the value object owns what it should.
+
+## Discussion Questions
+
+1. How does `ServiceTime` equality differ from object identity in Ruby? What's the difference between `==` and `equal?`?
+2. What makes `ServiceTime` a value object rather than an entity? How would you know if an object should be an entity instead?
+3. `ServiceTime` implements `<=>` via `Comparable`. Is ordering a natural property of a service time, or does it feel forced?
+
+## Going Further
+
+Add a `to_short_s` method to `ServiceTime` that returns a compact format such as
+`"Sun 8am CT"`. Notice that `ServiceSchedule` doesn't need to change. Then try
+adding a `next_occurrence` method that computes the next calendar date for this
+service time — and consider whether that behavior belongs on `ServiceTime` or
+on a different object.

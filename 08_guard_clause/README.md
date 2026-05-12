@@ -42,3 +42,16 @@ end
 Ask yourself: can you read the method top-to-bottom and know immediately which
 condition causes each `false`? If yes — and there's no indentation past the
 method body — the guard clauses are in place.
+
+## Discussion Questions
+
+1. Does the order of guard clauses matter for correctness? Does it matter for readability? How would you prioritize them?
+2. How does removing the nesting change the cognitive load of reading the method — specifically, what does the reader no longer have to track?
+3. When might deeply nested conditionals be intentional and appropriate rather than a smell?
+
+## Going Further
+
+Add a fifth eligibility criterion — say, `employer[:match_program_active]`. Notice
+it's a single new `return false unless ...` line at the top, rather than another
+level of nesting. Then consider: could these conditions be extracted to named
+predicates (kata 13 style)? When does that become worth doing?

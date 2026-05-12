@@ -33,3 +33,16 @@ end
 
 Ask yourself: if a new developer reads only the method names, do they understand
 what `summary_line` does without reading the implementations?
+
+## Discussion Questions
+
+1. How do you decide what to name an extracted method? What makes a name good or bad?
+2. `summary_line` now reads like a sentence of method calls. What would it look like if you extracted *too far* — each extracted method further extracting still more methods?
+3. The three sections were separated by comments before. What does that tell you about whether they were ready to extract?
+
+## Going Further
+
+The current method has three clearly separated jobs with no shared state between
+them. A harder case: a method where two sections share a local variable. Try
+splitting `summary_line` further by making each extracted method accept only
+what it needs as arguments, forcing you to name the inputs explicitly.
